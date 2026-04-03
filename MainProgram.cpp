@@ -36,10 +36,15 @@ int main() {
     // Ask the user for their name and greet them.
     // Example output: "Hello, Ali! Welcome to the Loops Lab."
 
+
     // TODO: Declare a string variable for the name
     // TODO: Prompt the user and read the name with cin
     // TODO: Print the greeting
+string isim;
+cout << "isminizi girin " << endl;
+cin >> isim;
 
+cout << "merhaba " << isim << " loops labina hosgeldin " << endl;
     cout << endl;
 
     // Exercise 1.2
@@ -51,7 +56,11 @@ int main() {
     // TODO: Declare two int variables
     // TODO: Prompt and read both integers
     // TODO: Print the sum and product
+int a, b;
+cout << "iki sayi giriniz " << endl;
+cin >> a >> b;
 
+cout << "sonuc: " << a + b << endl;
     cout << endl;
 
     // ========================================================================
@@ -77,10 +86,13 @@ int main() {
     // Exercise 2.1
     // Using a WHILE loop, print all EVEN numbers from 2 to 20.
     // Expected output: 2 4 6 8 10 12 14 16 18 20
-
     cout << "Even numbers (while): ";
     // TODO: Write a while loop that prints even numbers from 2 to 20
-
+int i = 2;
+while (i <= 20) {
+    cout << i << " " << endl;
+    i +=2;
+}
     cout << endl;
 
     // --- 2B: The FOR loop ---
@@ -100,9 +112,10 @@ int main() {
 
     cout << "Odd numbers (for): ";
     // TODO: Write a for loop that prints odd numbers from 1 to 15
-
+for (int i = 1; i <= 15; i+=2){
+    cout << i << " ";
     cout << endl;
-
+}
     // --- 2C: The DO-WHILE loop ---
     // Syntax:
     //   do {
@@ -124,7 +137,17 @@ int main() {
     // Then print: "You entered: X"
 
     // TODO: Declare an int variable
+    int num;
+    
     // TODO: Write a do-while loop that validates input (1-10)
+    do {
+        cout << "enter a number between 1-10: ";
+        cin >> num;
+        if (num < 1 || num > 10){
+            cout << "invalid try again " << endl;
+        }
+    }while (num < 1 || num > 10);
+      cout << "girdigin sayi " << num << endl;
     // TODO: Print the valid number
 
     cout << endl;
@@ -141,12 +164,19 @@ int main() {
     // Print a countdown from that number to 1, then print "Liftoff!"
     // Example for input 5:
     //   5... 4... 3... 2... 1... Liftoff!
+   
+    
 
     cout << "-- Exercise 3.1: Countdown --" << endl;
     // TODO: Ask user for a starting number
     // TODO: Use a loop to count down to 1, printing each number followed by "... "
     // TODO: After the loop, print "Liftoff!"
-
+ int counter;
+    cout << "enter a starting number " << endl;
+    cin >> counter;
+    for (int i=counter; i >= 1; i--){
+        cout << i << endl;
+    }
     cout << endl;
 
     // Exercise 3.2 — Sum Calculator
@@ -158,12 +188,23 @@ int main() {
     //   Enter number 2: 20
     //   Enter number 3: 5
     //   Total sum: 35
+    
+    
 
     cout << "-- Exercise 3.2: Sum Calculator --" << endl;
     // TODO: Ask how many numbers
     // TODO: Use a for loop to read each number and accumulate the sum
     // TODO: Print the total sum
+int adet, sayi, toplam = 0;
+cout << "kac sayi girilicek " << endl;
+cin >> adet;
 
+for (int i = 1; i <= adet; i++){
+    cout << " sayi giriniz " << i << ": ";
+    cin >> sayi;
+    toplam = toplam + sayi;
+}
+cout << "total sonuc : " << toplam << endl;
     cout << endl;
 
     // Exercise 3.3 — Multiplication Table
@@ -179,7 +220,12 @@ int main() {
     // TODO: Ask for N
     // TODO: Use a for loop from 1 to 10
     // TODO: Print each line: N x i = N*i
-
+int n;
+cout << "bir sayi giriniz" << endl;
+cin >> n;
+for (int i=1; i <= 10; i++){
+    cout << n << " x " << i << " = " << n*i << endl;
+}
     cout << endl;
 
     // Exercise 3.4 — Factorial Calculator
@@ -194,7 +240,15 @@ int main() {
     // TODO: Use a loop to calculate the factorial
     //       Hint: start with result = 1, multiply by each number from 1 to N
     // TODO: Print the result
+int fn; 
+cout << " enter a non negative integer ";
+cin >> fn;
 
+long factorial = 1 ;
+for ( int f = 1; f <= fn ; f++){
+    factorial *= f;
+}
+cout << fn <<  " ! = " << factorial << endl;
     cout << endl;
 
     // Exercise 3.5 — Number Guessing (Sentinel Loop)
@@ -213,7 +267,22 @@ int main() {
     //       - Increment the counter
     //       - Print "Too high!" or "Too low!" if wrong
     // TODO: Print "Correct! You guessed it in X tries."
-
+int tahmin;
+int deneme = 0;
+while (tahmin != secret ){
+    cout << "bir sayi gir " << endl;
+    cin >> tahmin;
+     deneme++;
+     
+     if (tahmin > secret){
+         cout << "daha kucuk sayi gir" << endl;
+     } else if (tahmin < secret){
+         cout << "daha buyuk sayi gir " << endl;
+         
+     } else {
+         cout << "dogru "  << deneme << " kadar denemede bildin " << endl;
+     }
+}
     cout << endl;
 
     // Exercise 3.6 — Pattern Printer (Nested Loops)
